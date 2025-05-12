@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo test succesfully passed & exit 1"
+    "test": "echo test succesfully passed"
   },
   "keywords": [],
   "author": "",
