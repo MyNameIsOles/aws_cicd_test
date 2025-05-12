@@ -10,7 +10,7 @@ phases:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
-      - npm install
+      - npm run test
 
 artifacts:
   files:
