@@ -3,12 +3,12 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Started install phase...
+      - echo "Started install phase..."
     runtime-versions:
       nodejs: 20.x
   build:
     commands:
-      - echo Entered the build phase...
+      - echo "Entered the build phase..."
       - echo Build started on `date`
       - npm run test
 
