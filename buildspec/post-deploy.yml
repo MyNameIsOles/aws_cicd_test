@@ -5,7 +5,7 @@ env:
     FUNCTION_NAME: "cicd-demo-deploy"
     ZIP_FILE: lambda.zip
   parameter-store:
-    CHAT_ID: chat_id
+    CHAT_ID: CHAT_ID
     BOT_TOKEN: bot_token
 
 phases:
