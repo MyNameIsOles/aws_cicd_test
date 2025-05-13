@@ -11,7 +11,6 @@ env:
 phases:
   build:
     commands:
-      - echo "Chat ID ${CHAT_ID}, ${BOT_TOKEN}"
       - aws lambda invoke --function-name ${FUNCTION_NAME} --cli-binary-format raw-in-base64-out --payload '{"key":"value"}' response.json
     finally:
       - |
@@ -21,7 +20,7 @@ phases:
           STATUS="Failed"
         fi
 
-        MESSAGE="🔔 Build status: *${STATUS}*\nBuild ID: \`${CODEBUILD_BUILD_ID}\`"
+        MESSAGE="🔔 Build status: *${STATUS}*\n Build ID: \`*${CODEBUILD_BUILD_ID}*\`"
 
         PAYLOAD=$(cat <<EOF
         {
