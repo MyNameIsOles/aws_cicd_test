@@ -9,7 +9,8 @@ phases:
   install:
     runtime-versions:
       nodejs: 20.x
+    commands:
 
   build:
     commands:
-      - aws lambda invoke --function-name ${FUNCTION_NAME} --cli-binary-format raw-in-base64-out --payload '{ "name": "Bob" }' response.json
+      - aws lambda invoke --function-name ${FUNCTION_NAME} --cli-binary-format raw-in-base64-out --payload '{"name": "Bob"}' response.json
