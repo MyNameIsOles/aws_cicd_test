@@ -16,7 +16,7 @@ phases:
       - |
         WEBHOOK_URL="https://api.telegram.org/bot${BOT_TOKEN}/sendMessage"
         STATUS="Success"
-        if ["$CODEBUILD_BUILD_SUCCEDING" -ne 1]; then
+        if [ "$CODEBUILD_BUILD_SUCCEDING" -ne 1 ]; then
           STATUS="Failed"
         fi
         PAYLOAD=$(cat <<EOF
@@ -24,5 +24,6 @@ phases:
           "status": "$STATUS",
           "build_id": "$CODEBUILD_BUILD_ID"
         }
-        EOF )
+        EOF
+        )
         curl -XPOST -H "Content-Type:application/json" -d "${PAYLOAD}" -d chat_id="${CHAT_ID}" "${WEBHOOK_URL}"
