@@ -21,12 +21,15 @@ phases:
           STATUS="Failed"
         fi
 
+        MESSAGE="🔔 Build status: *${STATUS}*\nBuild ID: \`${CODEBUILD_BUILD_ID}\`"
+
         PAYLOAD=$(cat <<EOF
         {
-          "status": "$STATUS",
-          "build_id": "$CODEBUILD_BUILD_ID"
+          "chat_id": "${CHAT_ID}",
+          "text": "${MESSAGE}",
+          "parse_mode": "Markdown"
         }
         EOF
         )
 
-        curl -XPOST -H "Content-Type:application/json" -d "${PAYLOAD}" -d chat_id="${CHAT_ID}" "${WEBHOOK_URL}"
+        curl -s -X POST "${WEBHOOK_URL}" -H "Content-Type: application/json" -d "${PAYLOAD}"
